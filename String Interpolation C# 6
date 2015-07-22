@@ -1,0 +1,43 @@
+## C# 6 String Interpolation
+
+Hi! Today I want to talk a little bit about **string interpolation** in C# 6.
+
+### Old Way:
+
+Let's say we wanted to create a string, inserting some values into it using trusty old string.Format().
+
+```
+string theWho = "Cookie Monster";
+string theWhat = "cookies";
+
+string theStory = string.Format("{0} loves {1}.", theWho, theWhat);
+```
+
+Now, this seems very comfortable for all of us who have been using this syntax for years.  But the Microsoft wizards have given us a new spell!
+
+### New Way:
+
+So the new way is a lot cleaner IMO.
+
+```
+string theWho = "Cookie Monster";
+string theWhat = "cookies";
+
+string theStory = $"{theWho} loves {theWhat}!";
+```
+
+Microsoft is not deprecating string.Format() so you're in luck if you prefer the 'old' syntax.  I know that I much prefer the new syntax!
+
+Also, these behave just as you'd expect them to in relation to objects.
+If, for example, we had the following object:
+```
+var cookieMonster = new CookieMonster
+{
+    Location = Locations.Kitchen,
+    FavoriteCookie = CookieTypes.ChocolateChip
+};
+
+var theStory = $"All the {cookieMonster.FavoriteCookie} were stolen from the {cookieMonster.Location}!!"
+```
+
+This is one of my favorite new features of the language.  Stay tuned for more!
